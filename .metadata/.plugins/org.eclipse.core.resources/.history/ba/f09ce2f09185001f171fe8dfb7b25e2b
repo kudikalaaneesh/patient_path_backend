@@ -1,0 +1,41 @@
+package capstone.project.paticentpath.models;
+
+import org.springframework.data.annotation.Id;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Table(name="user")
+@Getter
+@Setter
+public class UserRegister {
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+ private long id;
+
+private String name;
+private String  email;
+private String password;
+private int age;
+private long phonenumber;
+
+UserRegister(){
+	
+}
+
+public UserRegister(long id, String name, String email, String password, int age, long phonenumber) {
+	super();
+	this.id = id;
+	this.name = name;
+	this.email = email;
+	this.password = password;
+	this.age = age;
+	this.phonenumber = phonenumber;
+}
+
+}

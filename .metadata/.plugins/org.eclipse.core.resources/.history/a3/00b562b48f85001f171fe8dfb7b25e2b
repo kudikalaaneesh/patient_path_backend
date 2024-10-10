@@ -1,0 +1,20 @@
+package capstone.project.paticentpath.services.impl;
+
+import capstone.project.paticentpath.models.UserRegister;
+import capstone.project.paticentpath.services.UserService;
+
+public class userserviceimpl implements UserService {
+
+	@Override
+	public UserRegister AddUser(UserRegister user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UserRegister getUserdata() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

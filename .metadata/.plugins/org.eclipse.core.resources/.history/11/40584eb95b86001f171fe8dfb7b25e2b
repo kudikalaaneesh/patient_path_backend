@@ -1,0 +1,5 @@
+package capstone.project.paticentpath.exceptions;
+
+public class ResourceNotFound extends RuntimeException {
+
+}

@@ -1,0 +1,41 @@
+package capstone.project.paticentpath.models;
+
+import jakarta.annotation.Generated;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
+@Entity
+@Table(name="doctor")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class Doctor {
+	
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private int id;
+@Getter
+@Setter
+private String doctorName;
+@Getter
+@Setter
+private String doctorSpilist;
+@Getter
+@Setter
+private String hospitalName;
+@Getter
+@Setter
+private boolean doctor_avilable;
+
+
+
+}

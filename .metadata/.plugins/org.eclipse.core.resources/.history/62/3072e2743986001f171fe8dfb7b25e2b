@@ -1,0 +1,10 @@
+package capstone.project.paticentpath.services;
+
+import capstone.project.paticentpath.models.Adminuser;
+
+public interface Adminservice {
+
+	public boolean addAdmin(Adminuser auser);
+	
+	public boolean adminLogin(String username,String password);
+}

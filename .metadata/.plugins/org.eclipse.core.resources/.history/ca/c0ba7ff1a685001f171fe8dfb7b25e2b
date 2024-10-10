@@ -1,0 +1,7 @@
+package capstone.project.paticentpath.models;
+
+@Entity
+
+public class Doctor {
+
+}

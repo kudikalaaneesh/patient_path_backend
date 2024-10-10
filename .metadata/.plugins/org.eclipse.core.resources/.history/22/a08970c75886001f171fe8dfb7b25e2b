@@ -1,0 +1,28 @@
+package capstone.project.paticentpath.services.impl;
+
+import java.util.List;
+
+import capstone.project.paticentpath.models.Doctor;
+import capstone.project.paticentpath.services.DoctorService;
+
+public class DoctorServiceImpl implements DoctorService {
+
+	@Override
+	public Boolean addDoctor(Doctor doctor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Doctor> getAllDoctors() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean deleteDoctor(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

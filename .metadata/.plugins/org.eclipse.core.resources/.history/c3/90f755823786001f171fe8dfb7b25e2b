@@ -1,0 +1,15 @@
+package capstone.project.paticentpath.models;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="adminuser")
+public class Adminuser {
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+
+}

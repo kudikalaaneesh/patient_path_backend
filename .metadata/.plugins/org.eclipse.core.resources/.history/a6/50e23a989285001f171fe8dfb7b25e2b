@@ -1,0 +1,10 @@
+package capstone.project.paticentpath.services;
+
+import capstone.project.paticentpath.models.UserRegister;
+
+public interface UserService {
+
+	public UserRegister AddUser(UserRegister user);
+	
+	public UserRegister getUserdata();
+}

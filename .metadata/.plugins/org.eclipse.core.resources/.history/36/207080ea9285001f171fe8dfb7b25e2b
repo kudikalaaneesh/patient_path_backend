@@ -1,0 +1,37 @@
+package capstone.project.paticentpath.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import capstone.project.paticentpath.models.UserRegister;
+import capstone.project.paticentpath.services.impl.Userserviceimpl;
+
+
+@RestController
+@RequestMapping("user")
+
+public class Authcontroller {
+
+	@Autowired
+	Userserviceimpl userservice;
+	
+	@PostMapping
+	public ResponseEntity<UserRegister>  registerUser(@RequestBody UserRegister user){
+		
+		UserRegister reg = userservice.AddUser(user);
+		
+		return new  ResponseEntity<UserRegister>(reg,HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping
+	public UserRegister getUser() {
+		return userservice.getUserdata();
+		}
+	
+}

@@ -1,0 +1,38 @@
+package capstone.project.paticentpath.services.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import capstone.project.paticentpath.exceptions.ResourceNotFound;
+import capstone.project.paticentpath.models.Doctor;
+import capstone.project.paticentpath.repositorys.DoctoRepo;
+import capstone.project.paticentpath.services.DoctorService;
+
+public class DoctorServiceImpl implements DoctorService {
+
+	@Autowired
+	DoctoRepo drepo;
+	
+	
+	
+	@Override
+	public Doctor addDoctor(Doctor doctor) {
+		
+		return  drepo.save(doctor) ;
+	}
+
+	@Override
+	public List<Doctor> getAllDoctors() {
+	
+		return drepo.findAll();
+	}
+
+	@Override
+	public boolean deleteDoctor(int id) {
+	  boolean idDelted = false;
+	  Doctor doc = drepo.findById(id).orElseThrow(()-> new ResourceNotFound("Doctor","id",id));
+		return false;
+	}
+
+}

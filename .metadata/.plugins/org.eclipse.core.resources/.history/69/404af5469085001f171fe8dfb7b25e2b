@@ -1,0 +1,26 @@
+package capstone.project.paticentpath.services.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import capstone.project.paticentpath.models.UserRegister;
+import capstone.project.paticentpath.repositorys.UserReg;
+import capstone.project.paticentpath.services.UserService;
+
+public class userserviceimpl implements UserService {
+
+	@Autowired
+	UserReg userrepo;
+	
+	
+	@Override
+	public UserRegister AddUser(UserRegister user) {
+		
+		return userrepo.save(user);
+	}
+
+	public UserRegister getUserdata() {
+	
+		return (UserRegister) userrepo.findAll();
+	}
+
+}

@@ -1,0 +1,5 @@
+package capstone.project.paticentpath.repositorys;
+
+public interface UserReg implements JpaRepositry<UserRegister,Long>{
+
+}
