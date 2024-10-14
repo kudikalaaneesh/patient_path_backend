@@ -11,7 +11,7 @@ import lombok.Setter;
 @ResponseStatus(value = HttpStatus.NOT_FOUND 	)
 @Getter
 @Setter
-@AllArgsConstructor
+
 @NoArgsConstructor
 
 public class ResourceNotFound extends RuntimeException {

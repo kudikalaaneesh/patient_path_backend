@@ -11,4 +11,6 @@ public interface UserService {
 	public List<User> getUserdata();
 	
 	public boolean login(String email,String password);
+
+	public User FechByEmail(String Email);
 }

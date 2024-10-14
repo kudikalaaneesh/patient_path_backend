@@ -1,6 +1,7 @@
 package capstone.project.paticentpath.services.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,6 +43,14 @@ public class Userserviceimpl implements UserService {
 		    } else {
 		        return false;
 		    }
+	}
+
+	@Override
+	public User FechByEmail(String email) {
+	
+	User user = userrepo.findByEmail(email);
+		return user;
+		
 	}
 	
 	
