@@ -39,12 +39,18 @@ public class Authcontroller {
 		return userservice.getUserdata();
 		}
 	
-	@GetMapping("login")
-	public ResponseEntity<String> loginUser(@RequestBody User login){
-		String res = userservice.login(login.getEmail(), login.getPassword());
-		
-		
-		return new  ResponseEntity<String>(res,HttpStatus.ACCEPTED);
+	@PostMapping("login")
+	public ResponseEntity<Boolean>  loginUser(@RequestBody User login){
+		  try {
+		     boolean res = userservice.login(login.getEmail(), login.getPassword());
+		        if (res) {
+		            return new ResponseEntity<>(true, HttpStatus.OK);
+		        } else {
+		            return new ResponseEntity<>(false, HttpStatus.UNAUTHORIZED);
+		        }
+		    } catch (Exception e) {
+		        return new ResponseEntity<>(false, HttpStatus.INTERNAL_SERVER_ERROR);
+		    }
 		
 	}
 		

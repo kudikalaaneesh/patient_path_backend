@@ -29,23 +29,19 @@ public class Userserviceimpl implements UserService {
 	}
 
 	@Override
-	public String login(String email, String password) {
+	public boolean login(String email, String password) {
 	 
-		User user = userrepo.findByEmail(email);
-		String res="";
-		 if(user==null) {
-				res =  "Email Not found";
-				return "Email not found";
-				}
-		 if(user!=null  && user.getPassword().equals(password)) {
-			res =  "Login Sucess";
-		}
-		
-		  if(!password.equals(user.getPassword())) {
-				res =  "Wrong password try again";
-			}
-		
-  return res;
+		 User user = userrepo.findByEmail(email);
+
+		    if (user == null) {
+		      return false;
+		    }
+
+		    if (user.getPassword().equals(password)) {
+		        return true;
+		    } else {
+		        return false;
+		    }
 	}
 	
 	

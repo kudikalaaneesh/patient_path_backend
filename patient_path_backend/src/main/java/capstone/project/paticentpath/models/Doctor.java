@@ -16,6 +16,8 @@ import org.hibernate.annotations.Type;
 @Table(name="doctortable")
 
 public class Doctor {
+	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -107,7 +109,12 @@ public void setDoctor_avilable(boolean doctor_avilable) {
 	this.doctor_avilable = doctor_avilable;
 }
 
-
+@Override
+public String toString() {
+	return "Doctor [id=" + id + ", doctorName=" + doctorName + ", doctorSpilist=" + doctorSpilist
+			+ ", hospitalName=" + hospitalName + ", exprence=" + exprence + ", education=" + education
+			+ ", doctor_avilable=" + doctor_avilable + "]";
+}
 
 
 }

@@ -21,7 +21,7 @@ public class DoctorServiceImpl implements DoctorService {
 	
 	@Override
 	public Doctor addDoctor(Doctor doctor) {
-		
+		//adding email notification
 		return  drepo.save(doctor) ;
 	}
 
@@ -44,10 +44,13 @@ public class DoctorServiceImpl implements DoctorService {
 
 	@Override
 	public Doctor updateDocterDetails(Doctor updateDoctor ,int id) {
-		//Object doc1= drepo.findById(id);
-		System.out.println("THis is working");
-		Doctor existingDoctor = drepo.findById(id).orElseThrow(() -> new ResourceNotFound("Doctor", "id", id));
-        System.out.println("doctor works");
+		
+		
+		Optional<Doctor> existingDoctor1  = drepo.findById(id);
+		Doctor existingDoctor = null;
+     
+		if(existingDoctor1.isPresent()) {
+		existingDoctor = (Doctor) existingDoctor1.get();
         if(existingDoctor.getId()==id) {
 	    existingDoctor.setDoctorName(updateDoctor.getDoctorName());
 	    existingDoctor.setDoctorSpilist(updateDoctor.getDoctorSpilist());
@@ -55,6 +58,7 @@ public class DoctorServiceImpl implements DoctorService {
 	    existingDoctor.setEducation(updateDoctor.getEducation());
        drepo.save(existingDoctor);
         }
+		}
 	    return existingDoctor;
 	}
 
