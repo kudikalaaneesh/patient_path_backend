@@ -16,11 +16,6 @@ private String email;
 private String password;
 
 
-
-
-
-
-
 public Adminuser(int id, String email, String password) {
 	super();
 	this.id = id;
