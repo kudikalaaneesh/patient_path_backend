@@ -49,6 +49,7 @@ public class Userserviceimpl implements UserService {
 	public User FechByEmail(String email) {
 	
 	User user = userrepo.findByEmail(email);
+	System.out.println(user);
 		return user;
 		
 	}

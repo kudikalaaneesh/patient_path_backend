@@ -13,4 +13,6 @@ public interface BookAppointservice {
 	public boolean updateAppointment(int id,BookAppointment bookappoint);
 	
 	public List<BookAppointment> getAllOrder();
+	
+	public String displayData(BookAppointment ap);
 }

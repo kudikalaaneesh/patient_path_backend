@@ -14,8 +14,9 @@ public class BookAppointmentServiceImpl implements  BookAppointservice{
 	
 	@Autowired
 	BookAppoint appoint;
-	
-
+	@Autowired
+	SendEmailImpl sendemail;
+  
 	@Override
 	public BookAppointment addAppointment(BookAppointment bookappoint) {
 		
@@ -26,7 +27,13 @@ public class BookAppointmentServiceImpl implements  BookAppointservice{
 	public boolean deleteAppointment(int id) {
 		Optional<BookAppointment> order=appoint.findById(id);
 		if(order.isPresent()) {
-			appoint.deleteById(id);
+			
+			Optional<BookAppointment> delap = appoint.findById(id);
+			 appoint.deleteById(id);
+			if(delap.isPresent()) {
+				sendemail.sendEmail(delap.get().getEmail() ,"Your appoinment is canclled ", this.displayData(delap.get()));
+			}
+				
 			return true;
 		}
 		return false;
@@ -61,5 +68,11 @@ public class BookAppointmentServiceImpl implements  BookAppointservice{
 		
 		return appoint.findAll();
 	}
+	public String  displayData(BookAppointment ap) {
+		return "Hi "+ap.getName()+"\n Your appoinment details\n\n"+"Hospital Name "+ap.getHospitalName()+"\n Doctor Name : "+ap.getDoctorName()+"\n"+
+	" Appoinment Date : "+ap.getDate()+"\n Appoinment Time : "+ap.getTime()+"\n"
+			+ "Thankyou for booking your appoinment by Patient path";
+	}
 
+	
 }

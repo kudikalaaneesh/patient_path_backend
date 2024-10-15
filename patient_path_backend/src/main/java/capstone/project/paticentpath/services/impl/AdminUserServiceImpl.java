@@ -29,4 +29,9 @@ public class AdminUserServiceImpl implements Adminservice {
 		return false;
 	}
 
+	public Adminuser fechByEmailid(String email) {
+		Adminuser find = adminrepo.findByEmail(email);
+		return find;
+	}
+
 }

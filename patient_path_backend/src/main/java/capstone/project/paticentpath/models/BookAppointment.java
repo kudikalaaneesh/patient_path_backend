@@ -94,6 +94,10 @@ public class BookAppointment {
 		this.date = date;
 	}
 	
-	
+	public String  display() {
+		return "Hi "+this.name+"\n Your appoinment details\n\n"+"Hospital Name "+this.hospitalName+"\n Doctor Name : "+this.doctorName+"\n"+
+	" Appoinment Date : "+this.date+"\n Appoinment Time : "+this.time+"\n"
+			+ "Thankyou for booking your appoinment by Patucenyt path";
+	}
 
 }

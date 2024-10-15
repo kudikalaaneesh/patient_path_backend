@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMethod;
 import capstone.project.paticentpath.models.BookAppointment;
 import capstone.project.paticentpath.services.impl.BookAppointmentServiceImpl;
+import capstone.project.paticentpath.services.impl.SendEmailImpl;
 
 @CrossOrigin(origins = "http://localhost:4200", 
 methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE} , maxAge = 3600)
@@ -26,6 +27,8 @@ public class BookAppointController {
 		
 	@Autowired
 	BookAppointmentServiceImpl bookAppointImpl;
+	@Autowired
+	SendEmailImpl sendemail;
 	
 	
 	@GetMapping
@@ -36,7 +39,7 @@ public class BookAppointController {
 	@PostMapping
 	public ResponseEntity<BookAppointment> addBook(@RequestBody BookAppointment book){
 		BookAppointment book1 = bookAppointImpl.addAppointment(book);
-		
+		sendemail.sendEmail(book.getEmail(), "Your Appoinment on PatientPath is susscessluy is done ",bookAppointImpl.displayData(book) );
 		return new ResponseEntity<BookAppointment>(book1,HttpStatus.ACCEPTED);
 	}
 	
@@ -44,6 +47,7 @@ public class BookAppointController {
 	public String deleteAppointment(@PathVariable int id) {
 		boolean returnType=bookAppointImpl.deleteAppointment(id);
 		if(returnType) {
+			
 			return " appointmnet deleted successfully";
 		}
 		return "Unable to delete the appointment";

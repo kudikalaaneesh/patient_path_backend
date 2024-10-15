@@ -7,4 +7,6 @@ public interface Adminservice {
 	public Adminuser addAdmin(Adminuser auser);
 	
 	public boolean adminLogin(String email,String password);
+	
+	public Adminuser fechByEmailid(String email);
 }

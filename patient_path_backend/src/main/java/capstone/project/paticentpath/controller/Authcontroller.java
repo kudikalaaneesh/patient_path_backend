@@ -58,7 +58,7 @@ public class Authcontroller {
 	@GetMapping("/{email}")
 	public ResponseEntity<User> findByEmail(@PathVariable String email) {
 		User user = userservice.FechByEmail(email); // Ensure the method name is consistent with Java naming conventions
-		System.out.println("\n\nworking\n\n");
+		//System.out.println("\n\nworking\n\n");
 			return new ResponseEntity<>(user, HttpStatus.OK); // 200 OK
 	
 	}
